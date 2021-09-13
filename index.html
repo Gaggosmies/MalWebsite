@@ -197,62 +197,21 @@
 
   <!-- Script for calculating the final price -->
   <script>
+    // emptyCounter is used in multiple functions
+    var emptyCounter = 0;
+
     function calculatePrice(){
         event.preventDefault();
-        var isAllOptionsSelected = 1;
-        var stylePrice;
-        var formatPrice;
-        var outlinesPrice;
-        var backgroundPrice;
-        var extraPrice;
+        // reset counter
+        emptyCounter = 0;
 
-        if(document.getElementById('style').selectedIndex === 0)
-        {
-          stylePrice = 0;
-          isAllOptionsSelected = 0;
-        }
-        else
-        {
-          stylePrice = parseInt(document.getElementById('style').value);
-        }
-        if(document.getElementById('format').selectedIndex === 0)
-        {
-          formatPrice = 0;
-          isAllOptionsSelected = 0;
-        }
-        else
-        {
-          formatPrice = parseInt(document.getElementById('format').value);
-        }
-        if(document.getElementById('outlines').selectedIndex === 0)
-        {
-          outlinesPrice = 0;
-          isAllOptionsSelected = 0;
-        }
-        else
-        {
-          outlinesPrice = parseInt(document.getElementById('outlines').value);
-        }
-        if(document.getElementById('background').selectedIndex === 0)
-        {
-          backgroundPrice = 0;
-          isAllOptionsSelected = 0;
-        }
-        else
-        {
-          backgroundPrice = document.getElementById('background').value;
-        }
-        if(document.getElementById('extra').selectedIndex === 0)
-        {
-          extraPrice = 0;
-          isAllOptionsSelected = 0;
-        }
-        else
-        {
-          extraPrice = parseInt(document.getElementById('extra').value);
-        }
+        // check there is no empty elements
+        var stylePrice = checkIfElementEmpty(document.getElementById('style').selectedIndex, document.getElementById('style').value);
+        var formatPrice = checkIfElementEmpty(document.getElementById('format').selectedIndex, document.getElementById('format').value);
+        var outlinesPrice = checkIfElementEmpty(document.getElementById('outlines').selectedIndex, document.getElementById('outlines').value);
+        var backgroundPrice = checkIfElementEmpty(document.getElementById('background').selectedIndex, document.getElementById('background').value);
+        var extraPrice = checkIfElementEmpty(document.getElementById('extra').selectedIndex, document.getElementById('extra').value);
 
-        
         var result;
 
         if (backgroundPrice != "ask") {
@@ -261,11 +220,13 @@
         else
         {
           result = stylePrice + formatPrice + outlinesPrice + (extraPrice * 10);
-          result += " $ + some for the background, pm for more details";
+          result += "$ + ?$, dm for more info";
         }
 
         document.getElementById("price").innerHTML = result;
-        if(isAllOptionsSelected === 0)
+
+        // if empty counter is more than 0 -> there are empty slots
+        if(emptyCounter > 0)
         {
           document.getElementById("price").style.color = "red";
           document.getElementById("price").innerHTML += " Choose all options";
@@ -275,6 +236,26 @@
           document.getElementById("price").style.color = "green";
         }
     };
+
+    // Check if element has not been selected yet
+    function checkIfElementEmpty(elementIndex, elementValue){
+      var temp;
+      if(elementIndex===0)
+      {
+        temp = 0;
+        emptyCounter += 1;
+      }
+      else if(elementValue.includes("ask"))
+      {
+        return elementValue;
+      }
+      else 
+      {
+        temp = elementValue;
+      }
+      return parseInt(temp);
+    }
+    
   </script>
 
   <!-- Bootstrap scripts -->

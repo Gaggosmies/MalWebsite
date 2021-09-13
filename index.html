@@ -3,7 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>Mal prices</title>
+  <title>Malachimoet prices</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <style>
     body {
@@ -19,7 +19,7 @@
       color: azure;
     }
     
-    h1{
+    h1, h2{
       color:cornsilk;
     }
     /* Socials */
@@ -53,31 +53,31 @@
   <!-- Insert images here, the image will be shown as 500x500 pixels -->
   <script>
     var showStyle = {
-      0 : "https://d.furaffinity.net/art/malachimoet/1629540231/1629540231.malachimoet_gaggo_and_noir.png",
-      1 : "https://d.furaffinity.net/art/malachimoet/1629540159/1629540158.malachimoet_gaggo_and_noir_2.png",
-      2 : "https://d.furaffinity.net/art/malachimoet/1629540304/1629540303.malachimoet_mocha.png",
-      3 : "https://d.furaffinity.net/art/malachimoet/1629540376/1629540376.malachimoet_opal.png"
+      1 : "Pics/malachisketch1.png",
+      2 : "Pics/malachilineart1.png",
+      3 : "Pics/malachiflatcolor.png",
+      4 : "Pics/malachifullcolor.png"
     };
 
     var showFormat = {
-      0 : "https://d.furaffinity.net/art/malachimoet/1629540231/1629540231.malachimoet_gaggo_and_noir.png",
-      1 : "https://d.furaffinity.net/art/malachimoet/1629540159/1629540158.malachimoet_gaggo_and_noir_2.png",
-      2 : "https://d.furaffinity.net/art/malachimoet/1629540304/1629540303.malachimoet_mocha.png",
-      3 : "https://d.furaffinity.net/art/malachimoet/1629540376/1629540376.malachimoet_opal.png"
+      1 : "Pics/imumuheadshot.png",
+      2 : "Pics/imumubust.png",
+      3 : "Pics/imumuhalfbody.png",
+      4 : "Pics/2imumufullbody.png"
     };
 
     var showOutlines = {
-      0 : "https://d.furaffinity.net/art/malachimoet/1629540231/1629540231.malachimoet_gaggo_and_noir.png",
-      1 : "https://d.furaffinity.net/art/malachimoet/1629540159/1629540158.malachimoet_gaggo_and_noir_2.png",
-      2 : "https://d.furaffinity.net/art/malachimoet/1629540304/1629540303.malachimoet_mocha.png",
-      3 : "https://d.furaffinity.net/art/malachimoet/1629540376/1629540376.malachimoet_opal.png"
+      1 : "Pics/shinxstoneregularoutline.png",
+      2 : "Pics/shinxstonethickoutline.png",
+      3 : "Pics/shinxstonestickeroutline.png",
+      4 : "Pics/shinxstonecoloredoutlines.png"
     };
 
     var showBackground = {
-      0 : "https://d.furaffinity.net/art/malachimoet/1629540231/1629540231.malachimoet_gaggo_and_noir.png",
-      1 : "https://d.furaffinity.net/art/malachimoet/1629540159/1629540158.malachimoet_gaggo_and_noir_2.png",
-      2 : "https://d.furaffinity.net/art/malachimoet/1629540304/1629540303.malachimoet_mocha.png",
-      3 : "https://d.furaffinity.net/art/malachimoet/1629540376/1629540376.malachimoet_opal.png"
+      1 : "Pics/velvetbackgroundnone.png",
+      2 : "Pics/velvetbackgroundsquare.png",
+      3 : "Pics/velvetbackgroundpattern.png",
+      4 : "Pics/velvetbackgroundcustom.png"
     };
   </script>
 
@@ -90,7 +90,10 @@
           <!-- Select style -->
           <form>
             <label for="style">Style selected</label>
-            <select class="form-control" id="style" onchange="document.getElementById('myimage').src = showStyle[this.selectedIndex];">
+            <select class="form-control" id="style" onchange="document.getElementById('myimage').src = showStyle[this.selectedIndex];calculatePrice()">
+              <option value="none" selected disabled hidden>
+                Select the style
+            </option>
               <option value="5">Sketch</option>
               <option value="10">Lineart</option>
               <option value="15">Flat color</option>
@@ -102,7 +105,10 @@
         <form>
           <div class="form-group">
             <label for="format">Format selected</label>
-            <select class="form-control" id="format" onchange="document.getElementById('myimage').src = showFormat[this.selectedIndex];">
+            <select class="form-control" id="format" onchange="document.getElementById('myimage').src = showFormat[this.selectedIndex];calculatePrice()">
+              <option value="none" selected disabled hidden>
+                Select the format
+            </option>
               <option value="5">Headshot</option>
               <option value="7">Bust</option>
               <option value="10">Half body</option>
@@ -114,7 +120,10 @@
         <form>
           <div class="form-group">
             <label for="outlines">Outlines selected</label>
-            <select class="form-control" id="outlines" onchange="document.getElementById('myimage').src = showOutlines[this.selectedIndex];">
+            <select class="form-control" id="outlines" onchange="document.getElementById('myimage').src = showOutlines[this.selectedIndex];calculatePrice()">
+              <option value="none" selected disabled hidden>
+                Select the outline
+            </option>
               <option value="0">Regular</option>
               <option value="2">Thicc</option>
               <option value="4">Sticker</option>
@@ -126,7 +135,10 @@
         <form>
           <div class="form-group">
             <label for="background">Background selected</label>
-            <select class="form-control" id="background" onchange="document.getElementById('myimage').src = showBackground[this.selectedIndex];">
+            <select class="form-control" id="background" onchange="document.getElementById('myimage').src = showBackground[this.selectedIndex];calculatePrice()">
+              <option value="none" selected disabled hidden>
+                Select the background
+            </option>
               <option value="0">None</option>
               <option value="0">Square</option>
               <option value="2">Pattern</option>
@@ -137,8 +149,11 @@
         <!-- Select extra character amount -->
         <form>
           <div class="form-group">
-            <label for="extra">How many extra characters?</label>
-            <select class="form-control" id="extra">
+            <label for="extra"></label>How many extra characters?</label>
+            <select class="form-control" id="extra" onchange="calculatePrice()">
+              <option value="none" selected disabled hidden>
+                Select extra chacter number
+            </option>
               <option value="0">None</option>
               <option value="1">One</option>
               <option value="2">Two</option>
@@ -148,7 +163,6 @@
           </div>
         </form>
         <!-- Buttons -->
-        <button id="btn" type="button" class="btn btn-dark">Get dat price</button>
         <button type="button" style="visibility: hidden;"></button>
         <button type="button" class="btn btn-danger" onmousedown="window.open('https://docs.google.com/document/d/1W0POqDfm8FCCH5ujt_S3mOmQBXYwICGajFlKRKY62VQ/')">ToS</button>
         <button type="button" class="btn btn-success" onmousedown="window.open('https://docs.google.com/document/d/1j_uzSQg4J6fPDyTrkRGAbYTnIfM7lI42HHPEZA3aXmk/')">Rules</button>
@@ -161,13 +175,15 @@
       </div>
       <!-- Picture is shown here -->
       <div class="col-5">
-        <img src="https://d.furaffinity.net/art/malachimoet/1629544005/1629544004.malachimoet_shinxstone.png" id="myimage" width="500" height="500">
+        <h2>Price: </h2>
+        <h2 id="price">Please select all options</h2>
+        <img src="https://d.furaffinity.net/art/malachimoet/1629544005/1629544004.malachimoet_shinxstone.png" id="myimage" height="500" >
       </div>
     </div>
     <!-- Socials -->
     <div class="row">
       <div class="col-9">
-        <!-- Placeholder -->
+        <a href="https://www.furaffinity.net/user/gaggosmies/" style="color: white; text-decoration: none; font-size: 0.8em;">Website was made by @Gaggosmies</a>
       </div>
       <div class="col">
         <a href="https://www.furaffinity.net/user/malachimoet/">
@@ -181,15 +197,61 @@
 
   <!-- Script for calculating the final price -->
   <script>
-    const btn = document.querySelector('#btn');
-    const sb = document.querySelector('#style')
-    btn.onclick = (event) => {
+    function calculatePrice(){
         event.preventDefault();
-        var stylePrice = parseInt(document.getElementById('style').value);
-        var formatPrice = parseInt(document.getElementById('format').value);
-        var outlinesPrice = parseInt(document.getElementById('outlines').value);
-        var backgroundPrice = document.getElementById('background').value;
-        var extraPrice = parseInt(document.getElementById('extra').value);
+        var isAllOptionsSelected = 1;
+        var stylePrice;
+        var formatPrice;
+        var outlinesPrice;
+        var backgroundPrice;
+        var extraPrice;
+
+        if(document.getElementById('style').selectedIndex === 0)
+        {
+          stylePrice = 0;
+          isAllOptionsSelected = 0;
+        }
+        else
+        {
+          stylePrice = parseInt(document.getElementById('style').value);
+        }
+        if(document.getElementById('format').selectedIndex === 0)
+        {
+          formatPrice = 0;
+          isAllOptionsSelected = 0;
+        }
+        else
+        {
+          formatPrice = parseInt(document.getElementById('format').value);
+        }
+        if(document.getElementById('outlines').selectedIndex === 0)
+        {
+          outlinesPrice = 0;
+          isAllOptionsSelected = 0;
+        }
+        else
+        {
+          outlinesPrice = parseInt(document.getElementById('outlines').value);
+        }
+        if(document.getElementById('background').selectedIndex === 0)
+        {
+          backgroundPrice = 0;
+          isAllOptionsSelected = 0;
+        }
+        else
+        {
+          backgroundPrice = document.getElementById('background').value;
+        }
+        if(document.getElementById('extra').selectedIndex === 0)
+        {
+          extraPrice = 0;
+          isAllOptionsSelected = 0;
+        }
+        else
+        {
+          extraPrice = parseInt(document.getElementById('extra').value);
+        }
+
         
         var result;
 
@@ -201,8 +263,17 @@
           result = stylePrice + formatPrice + outlinesPrice + (extraPrice * 10);
           result += " $ + some for the background, pm for more details";
         }
-        
-        alert(result);
+
+        document.getElementById("price").innerHTML = result;
+        if(isAllOptionsSelected === 0)
+        {
+          document.getElementById("price").style.color = "red";
+          document.getElementById("price").innerHTML += " Choose all options";
+        }
+        else
+        {
+          document.getElementById("price").style.color = "green";
+        }
     };
   </script>
 

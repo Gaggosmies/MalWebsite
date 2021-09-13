@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+    overflow: hidden;
+  }
+
+  label {
+    color: azure;
+  }
+  
+  h1, h2{
+    color:cornsilk;
+  }
+  /* Socials */
+  .fa {
+    padding: 10px;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+
+  .fa:hover {
+      opacity: 0.7;
+  }
+
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+
+  .fa-deviantart {
+    background: #171a1e;
+    color: #00e49c;
+  }

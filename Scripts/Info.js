@@ -2,51 +2,57 @@
 const DocumentTitle = "Malachi Commissions";
 
 // Set default picture
-const DefaultPicture = "Pics/Default.png";
+const DefaultPicture     = "Pics/Default.png";
+const DefaultPictureName = "Default";
 
-// Styles
+// Picture parameters
+const PictureLocation   = "Pics/";
+const PictureFormat     = ".png";
+
+
+// Styles          |Name:          |Price: |Location:         |Picture name:       |Picture format:
 var Styles = [
-    new PriceClass("None", 0, DefaultPicture),
-    new PriceClass("Sketch", 5, "Pics/malachisketch1.png"),
-    new PriceClass("Lineart", 10, "Pics/malachilineart1.png"),
-    new PriceClass("Flat Color", 15, "Pics/malachiflatcolor.png"),
-    new PriceClass("Full Color", 20, "Pics/malachifullcolor.png"),
+    new PriceClass( "None",          0,      PictureLocation + DefaultPictureName   + PictureFormat),
+    new PriceClass( "Sketch",        5,      PictureLocation + "Style1"             + PictureFormat),
+    new PriceClass( "Lineart",       10,     PictureLocation + "Style2"             + PictureFormat),
+    new PriceClass( "Flat Color",    15,     PictureLocation + "Style3"             + PictureFormat),
+    new PriceClass( "Full Color",    20,     PictureLocation + "Style4"             + PictureFormat),
 ];
 
-// Formats 
+// Formats         |Name:          |Price: |Location:         |Picture name:       |Picture format:
 var Formats = [
-    new PriceClass("None", 0, DefaultPicture,),
-    new PriceClass("Headshot", 5, "Pics/imumuheadshot.png",),
-    new PriceClass("Bust", 7, "Pics/imumubust.png"),
-    new PriceClass("Half Body", 10, "Pics/imumuhalfbody.png"),
-    new PriceClass("Fullbody", 13, "Pics/2imumufullbody.png"),
+    new PriceClass( "None",          0,      PictureLocation + DefaultPictureName   + PictureFormat,),
+    new PriceClass( "Headshot",      5,      PictureLocation + "Format1"            + PictureFormat),
+    new PriceClass( "Bust",          7,      PictureLocation + "Format2"            + PictureFormat),
+    new PriceClass( "Half Body",     10,     PictureLocation + "Format3"            + PictureFormat),
+    new PriceClass( "Fullbody",      13,     PictureLocation + "Format4"            + PictureFormat),
 ];
 
-// Outlines
+// Outlines        |Name:          |Price: |Location:         |Picture name:       |Picture format:
 var Outlines = [
-    new PriceClass("None", 0, DefaultPicture),
-    new PriceClass("Regular", 0, "Pics/shinxstoneregularoutline.png"),
-    new PriceClass("T h i c c", 2, "Pics/shinxstonethickoutline.png"),
-    new PriceClass("Sticker", 4, "Pics/shinxstonestickeroutline.png"),
-    new PriceClass("Colored", 6, "Pics/shinxstonecoloredoutlines.png"),
+    new PriceClass( "None",          0,      PictureLocation + DefaultPictureName   + PictureFormat),
+    new PriceClass( "Regular",       0,      PictureLocation + "Outline1"           + PictureFormat),
+    new PriceClass( "T h i c c",     2,      PictureLocation + "Outline2"           + PictureFormat),
+    new PriceClass( "Sticker",       4,      PictureLocation + "Outline3"           + PictureFormat),
+    new PriceClass( "Colored",       6,      PictureLocation + "Outline4"           + PictureFormat),
 ];
 
-// Backgrounds 
+// Backgrounds     |Name:          |Price: |Location:         |Picture name:       |Picture format:
 var Backgrounds = [
-    new PriceClass("None", 0, DefaultPicture),
-    new PriceClass("None", 0, "Pics/velvetbackgroundnone.png"),
-    new PriceClass("Square", 0, "Pics/velvetbackgroundsquare.png"),
-    new PriceClass("Pattern", 2, "Pics/velvetbackgroundpattern.png"),
-    new PriceClass("Custom", 999, "Pics/velvetbackgroundcustom.png"),
+    new PriceClass( "None",          0,      PictureLocation + DefaultPictureName   + PictureFormat),
+    new PriceClass( "None",          0,      PictureLocation + "Background1"        + PictureFormat),
+    new PriceClass( "Square",        0,      PictureLocation + "Background2"        + PictureFormat),
+    new PriceClass( "Pattern",       2,      PictureLocation + "Background3"        + PictureFormat),
+    new PriceClass( "Custom",        999,    PictureLocation + "Background4"        + PictureFormat),
 ];
 
-// Extras 
+//  Extras         |Name:          |Price: |Location:         |Picture name:       |Picture format:
 var Extras = [
-    new PriceClass("None", 0, DefaultPicture),
-    new PriceClass("None", 0, "Pics/Default.png"),
-    new PriceClass("One", 10, "Pics/Default.png"),
-    new PriceClass("Two", 20, "Pics/Default.png"),
-    new PriceClass("Three", 30, "Pics/Default.png"),
+    new PriceClass( "None",          0,      PictureLocation + DefaultPictureName   + PictureFormat),
+    new PriceClass( "None",          0,      PictureLocation + DefaultPictureName   + PictureFormat),
+    new PriceClass( "One",           10,     PictureLocation + DefaultPictureName   + PictureFormat),
+    new PriceClass( "Two",           20,     PictureLocation + DefaultPictureName   + PictureFormat),
+    new PriceClass( "Three",         30,     PictureLocation + DefaultPictureName   + PictureFormat),
 ];
 
 // dmMeText is shown when the price is up to debate, set such class price to "999" to trigger this

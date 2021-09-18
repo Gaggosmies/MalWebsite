@@ -1,5 +1,7 @@
 // Set title
 document.title = DocumentTitle;
+// Set website icon
+document.getElementById("WebsiteIcon").href = WebsiteIcon;
 
 // Show default picture when the page is first reloaded
 document.getElementById("myimage").src = DefaultPicture;

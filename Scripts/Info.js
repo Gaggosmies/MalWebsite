@@ -1,5 +1,6 @@
 // Set Page title
 const DocumentTitle = "Malachi Commissions";
+const WebsiteIcon   = "Pics/Default.png";
 
 // Set default picture
 const DefaultPicture     = "Pics/Default.png";

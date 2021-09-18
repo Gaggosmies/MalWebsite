@@ -1,226 +1,115 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <!-- Can change title here -->
-  <title>Malachimoet prices</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Styles for social logos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="styling.css">
+  <!-- Boostrap styles -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Styles used in this website -->
+  <link rel="stylesheet" href="Styling/styling.css">
 </head>
+
 <body>
-
-  <!-- Insert images here, the image will be shown as 500x500 pixels -->
-  <script>
-    var showStyle = {
-      1 : "Pics/malachisketch1.png",
-      2 : "Pics/malachilineart1.png",
-      3 : "Pics/malachiflatcolor.png",
-      4 : "Pics/malachifullcolor.png"
-    };
-
-    var showFormat = {
-      1 : "Pics/imumuheadshot.png",
-      2 : "Pics/imumubust.png",
-      3 : "Pics/imumuhalfbody.png",
-      4 : "Pics/2imumufullbody.png"
-    };
-
-    var showOutlines = {
-      1 : "Pics/shinxstoneregularoutline.png",
-      2 : "Pics/shinxstonethickoutline.png",
-      3 : "Pics/shinxstonestickeroutline.png",
-      4 : "Pics/shinxstonecoloredoutlines.png"
-    };
-
-    var showBackground = {
-      1 : "Pics/velvetbackgroundnone.png",
-      2 : "Pics/velvetbackgroundsquare.png",
-      3 : "Pics/velvetbackgroundpattern.png",
-      4 : "Pics/velvetbackgroundcustom.png"
-    };
-  </script>
-
   <!-- Container for everything -->
   <div class="container">
     <div class="row">
       <div class="col">
         <h1 class="display-4"><u>MalachiMoet Commissions</u></h1>
-        <div class="form-group">
-          <!-- Select style -->
-          <form>
-            <label for="style">Style selected</label>
-            <select class="form-control" id="style" onchange="document.getElementById('myimage').src = showStyle[this.selectedIndex];calculatePrice()">
-              <option value="none" selected disabled hidden>
-                Select the style
-            </option>
-              <option value="5">Sketch</option>
-              <option value="10">Lineart</option>
-              <option value="15">Flat color</option>
-              <option value="20">Full color</option>
-            </select>
-          </div>
-        </form>
+
+        <!-- Select style -->
+        <label for="format">Style selected</label>
+        <select class="form-control" id="style"
+          onchange="document.getElementById('myimage').src = Styles[this.selectedIndex].examplePicture;calculatePrice()">
+          <option selected disabled hidden>
+            Select the style
+          </option>
+        </select>
+
         <!-- Select format -->
-        <form>
-          <div class="form-group">
-            <label for="format">Format selected</label>
-            <select class="form-control" id="format" onchange="document.getElementById('myimage').src = showFormat[this.selectedIndex];calculatePrice()">
-              <option value="none" selected disabled hidden>
-                Select the format
-            </option>
-              <option value="5">Headshot</option>
-              <option value="7">Bust</option>
-              <option value="10">Half body</option>
-              <option value="13">Full body</option>
-            </select>
-          </div>
-        </form>
+        <label for="format">Format selected</label>
+        <select class="form-control" id="format"
+          onchange="document.getElementById('myimage').src = Formats[this.selectedIndex].examplePicture;calculatePrice()">
+          <option selected disabled hidden>
+            Select the format
+          </option>
+        </select>
+
         <!-- Select outlines -->
-        <form>
-          <div class="form-group">
-            <label for="outlines">Outlines selected</label>
-            <select class="form-control" id="outlines" onchange="document.getElementById('myimage').src = showOutlines[this.selectedIndex];calculatePrice()">
-              <option value="none" selected disabled hidden>
-                Select the outline
-            </option>
-              <option value="0">Regular</option>
-              <option value="2">Thicc</option>
-              <option value="4">Sticker</option>
-              <option value="6">Colored</option>
-            </select>
-          </div>
-        </form>
+        <label for="outline">Outline selected</label>
+        <select class="form-control" id="outline"
+          onchange="document.getElementById('myimage').src = Outlines[this.selectedIndex].examplePicture;calculatePrice()">
+          <option selected disabled hidden>
+            Select the outlines
+          </option>
+        </select>
+
         <!-- Select background -->
-        <form>
-          <div class="form-group">
-            <label for="background">Background selected</label>
-            <select class="form-control" id="background" onchange="document.getElementById('myimage').src = showBackground[this.selectedIndex];calculatePrice()">
-              <option value="none" selected disabled hidden>
-                Select the background
-            </option>
-              <option value="0">None</option>
-              <option value="0">Square</option>
-              <option value="2">Pattern</option>
-              <option value="ask">Complex</option>
-            </select>
-          </div>
-        </form>
+        <label for="background">Background selected</label>
+        <select class="form-control" id="background"
+          onchange="document.getElementById('myimage').src = Backgrounds[this.selectedIndex].examplePicture;calculatePrice()">
+          <option selected disabled hidden>
+            Select the background
+          </option>
+        </select>
+
         <!-- Select extra character amount -->
-        <form>
-          <div class="form-group">
-            <label for="extra">How many extra characters?</label>
-            <select class="form-control" id="extra" onchange="calculatePrice()">
-              <option value="none" selected disabled hidden>
-                Select extra chacter number
-            </option>
-              <option value="0">None</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-              <option value="4">Four</option>
-            </select>
-          </div>
-        </form>
+        <label for="extra">Extra characters</label>
+        <select class="form-control" id="extra"
+          onchange="document.getElementById('myimage').src = Extras[this.selectedIndex].examplePicture;calculatePrice()">
+          <option selected disabled hidden>
+            Select amount of extra characters
+          </option>
+        </select>
+
         <!-- Buttons -->
+        <br>
         <button type="button" style="visibility: hidden;"></button>
-        <button type="button" class="btn btn-danger" onmousedown="window.open('https://docs.google.com/document/d/1W0POqDfm8FCCH5ujt_S3mOmQBXYwICGajFlKRKY62VQ/')">ToS</button>
-        <button type="button" class="btn btn-success" onmousedown="window.open('https://docs.google.com/document/d/1j_uzSQg4J6fPDyTrkRGAbYTnIfM7lI42HHPEZA3aXmk/')">Rules</button>
+        <button type="button" class="btn btn-danger" onmousedown="window.open(ToSLink)">ToS</button>
+        <button type="button" class="btn btn-success" onmousedown="window.open(RulesLink)">Rules</button>
         <button type="button" style="visibility: hidden;"></button>
-        <button type="button" class="btn btn-primary" onmousedown="window.open('https://docs.google.com/forms/d/e/1FAIpQLSe4a8_yWmegIEVGBj68ws0AwvEx7lN5GI_sVJtaNFKxYvbz8g/viewform')">Order here</button>
-        <button type="button" class="btn btn-warning" onmousedown="window.open('https://docs.google.com/spreadsheets/d/1MILIthZ7YY-GxYxfdmwVOaP1xSVUO7EPcqmzpLE3SWM/')">Queue</button>
+        <button type="button" class="btn btn-primary" onmousedown="window.open(OrderLink)">Order here</button>
+        <button type="button" class="btn btn-warning" onmousedown="window.open(QueueLink)">Queue</button>
         <button type="button" style="visibility: hidden;"></button>
         <button type="button" style="visibility: hidden;"></button>
         <button type="button" class="btn btn-light" onclick="window.location.reload();">Reset</button>
       </div>
-      <!-- Picture is shown here -->
+      <!-- Example picture is shown here -->
       <div class="col-5">
         <h2>Price: </h2>
         <h2 id="price">Please select all options</h2>
-        <img src="https://d.furaffinity.net/art/malachimoet/1629544005/1629544004.malachimoet_shinxstone.png" id="myimage" height="500" >
+        <img id="myimage" height="500">
       </div>
     </div>
     <!-- Socials -->
     <div class="row">
       <div class="col-9">
-        <a href="https://www.furaffinity.net/user/gaggosmies/" style="color: white; text-decoration: none; font-size: 0.8em;">Website was made by @Gaggosmies</a>
+        <a id="GaggoSocial" style="color: white; text-decoration: none; font-size: 0.8em;">Website was made by @Gaggosmies</a>
       </div>
       <div class="col">
-        <a href="https://www.furaffinity.net/user/malachimoet/">
-          <img src="https://user-images.githubusercontent.com/73164889/117507483-f7056c80-af7e-11eb-95ac-76b4a79b76de.png" height="50px" width="50px">
-        </a>
-        <a href="https://twitter.com/malachimoet" class="fa fa-twitter"></a>
-        <a href="https://www.deviantart.com/malachimoet" class="fa fa-deviantart"></a>
+        <a id="MalachiFA"><img id="FAPicture" height="50px" width="50px"></a>
+        <a id="MalachiTwitter" class="fa fa-twitter"></a>
+        <a id="MalachiDA" class="fa fa-deviantart"></a>
       </div>
     </div>
   </div>
 
-  <!-- Script for calculating the final price -->
-  <script>
-    // emptyCounter is used in multiple functions
-    var emptyCounter = 0;
-
-    function calculatePrice(){
-        event.preventDefault();
-        // reset counter
-        emptyCounter = 0;
-
-        // check there is no empty elements
-        var stylePrice = checkIfElementEmpty(document.getElementById('style').selectedIndex, document.getElementById('style').value);
-        var formatPrice = checkIfElementEmpty(document.getElementById('format').selectedIndex, document.getElementById('format').value);
-        var outlinesPrice = checkIfElementEmpty(document.getElementById('outlines').selectedIndex, document.getElementById('outlines').value);
-        var backgroundPrice = checkIfElementEmpty(document.getElementById('background').selectedIndex, document.getElementById('background').value);
-        var extraPrice = checkIfElementEmpty(document.getElementById('extra').selectedIndex, document.getElementById('extra').value);
-
-        var result;
-
-        if (backgroundPrice != "ask") {
-          result = stylePrice + formatPrice + outlinesPrice + parseInt(backgroundPrice) + (extraPrice * 10) + " $";
-        }
-        else
-        {
-          result = stylePrice + formatPrice + outlinesPrice + (extraPrice * 10);
-          result += "$ + ?$, dm for more info";
-        }
-
-        document.getElementById("price").innerHTML = result;
-
-        // if empty counter is more than 0 -> there are empty slots
-        if(emptyCounter > 0)
-        {
-          document.getElementById("price").style.color = "red";
-          document.getElementById("price").innerHTML += " Choose all options";
-        }
-        else
-        {
-          document.getElementById("price").style.color = "green";
-        }
-    };
-
-    // Check if element has not been selected yet
-    function checkIfElementEmpty(elementIndex, elementValue){
-      var temp;
-      if(elementIndex===0)
-      {
-        temp = 0;
-        emptyCounter += 1;
-      }
-      else if(elementValue.includes("ask"))
-      {
-        return elementValue;
-      }
-      else 
-      {
-        temp = elementValue;
-      }
-      return parseInt(temp);
-    }
-    
-  </script>
+  <!-- Scripts used in this file -->
+  <script type="text/javascript" src="Scripts/PriceClass.js"></script>
+  <script type="text/javascript" src="Scripts/Info.js"></script>
+  <script type="text/javascript" src="Scripts/scripts.js"></script>
 
   <!-- Bootstrap scripts -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 </body>
 </html>

@@ -29,8 +29,7 @@ for (index in Options) {
         'change',
         function ChangeExamplePicture(){
             document.getElementById('myimage').src = PictureLocation + this.id + this.selectedIndex + PictureFormat;
-        },
-        false
+        }
      );
 
      select.addEventListener(
@@ -68,8 +67,7 @@ for (index in Options) {
             }
         
             document.getElementById("price").innerHTML = price;
-        },
-        false
+        }
      );
 
     for (priceClass in Options[index].selectedPriceClass)

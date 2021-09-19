@@ -15,6 +15,10 @@ document.getElementById("MalachiFA").href       = MalachiLinkFA;
 document.getElementById("MalachiTwitter").href  = MalachiLinkTwitter;
 document.getElementById("MalachiDA").href       = MalachiLinkDA;
 
+function RestoreDefaultPicture() {
+    document.getElementById('myimage').src = DefaultPicture;
+}
+
 
 
 // -------------------------------------------------- calculatePrice() -------------------------------------------------- //
@@ -85,27 +89,27 @@ function checkIfElementEmpty(elementIndex, elementValue) {
 //         select.select[select.options.length] = new Selection()
 //     }
 // }
-
-var number = 0;
-for (options in Options) {
+for (index in Options) {
     // print new select
     var select = document.createElement("select");
-    select.id = Options[options].optionId;
+    select.id = Options[index].optionId;
     select.className = "form-control";
-    // select.addEventListener(
-    //     'change',
-    //     calculatePrice(),
-    //     false
-    //  );
+    select.addEventListener(
+        'change',
+        function (){
+            document.getElementById('myimage').src = PictureLocation + this.id + this.selectedIndex + PictureFormat;
+        },
+        false
+     );
 
-    for (priceClass in Options[options].selectedPriceClass)
+    for (priceClass in Options[index].selectedPriceClass)
     {
         // print new option
         if(priceClass > 0)
         {
             var option = document.createElement("option");
-            option.value = Options[options].selectedPriceClass[priceClass].price;
-            option.text = Options[options].selectedPriceClass[priceClass].name;
+            option.value = Options[index].selectedPriceClass[priceClass].price;
+            option.text = Options[index].selectedPriceClass[priceClass].name;
             // option.onchange = calculatePrice();
             // option.setAttribute("onchange", document.getElementById('myimage').src = Styles[priceClass].examplePicture);
             select.appendChild(option);
@@ -114,18 +118,18 @@ for (options in Options) {
         else
         {
             var option = document.createElement("option");
-            option.text = Options[options].placeholderText;
+            option.text = Options[index].placeholderText;
             option.hidden = true;
             select.appendChild(option);
         }
     }
 
     var label = document.createElement("label");
-    label.innerHTML = Options[options].labelText;
-    label.htmlFor = Options[options].optionId;
+    label.innerHTML = Options[index].labelText;
+    label.htmlFor = Options[index].optionId;
     label.className = "form-control-label";
 
-    var br = document.createElement("br");
+    // var br = document.createElement("br");
 
     document.getElementById("DifferentOptionsHere").appendChild(label).appendChild(select);
 }

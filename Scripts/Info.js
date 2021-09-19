@@ -12,60 +12,63 @@ const PictureFormat     = ".png";
 
 
 // ---------------------------------------------------- Different PriceClasses ---------------------------------------------------- //
-// Styles          |Name:          |Price: |Location:         |Picture name:       |Picture format:
+// Styles          |Name:          |Price:
 var Styles = [
-    new PriceClass( "None",          0,      PictureLocation + DefaultPictureName   + PictureFormat),
-    new PriceClass( "Sketch",        5,      PictureLocation + "Style1"             + PictureFormat),
-    new PriceClass( "Lineart",       10,     PictureLocation + "Style2"             + PictureFormat),
-    new PriceClass( "Flat Color",    15,     PictureLocation + "Style3"             + PictureFormat),
-    new PriceClass( "Full Color",    20,     PictureLocation + "Style4"             + PictureFormat),
+    new PriceClass( "None",          0),
+    new PriceClass( "Sketch",        5),
+    new PriceClass( "Lineart",       10),
+    new PriceClass( "Flat Color",    15),
+    new PriceClass( "Full Color",    20),
 ];
 
-// Formats         |Name:          |Price: |Location:         |Picture name:       |Picture format:
+// Formats         |Name:          |Price:
 var Formats = [
-    new PriceClass( "None",          0,      PictureLocation + DefaultPictureName   + PictureFormat,),
-    new PriceClass( "Headshot",      5,      PictureLocation + "Format1"            + PictureFormat),
-    new PriceClass( "Bust",          7,      PictureLocation + "Format2"            + PictureFormat),
-    new PriceClass( "Half Body",     10,     PictureLocation + "Format3"            + PictureFormat),
-    new PriceClass( "Fullbody",      13,     PictureLocation + "Format4"            + PictureFormat),
+    new PriceClass( "None",          0),
+    new PriceClass( "Headshot",      5),
+    new PriceClass( "Bust",          7),
+    new PriceClass( "Half Body",     10),
+    new PriceClass( "Fullbody",      13),
 ];
 
-// Outlines        |Name:          |Price: |Location:         |Picture name:       |Picture format:
+// Outlines        |Name:          |Price:
 var Outlines = [
-    new PriceClass( "None",          0,      PictureLocation + DefaultPictureName   + PictureFormat),
-    new PriceClass( "Regular",       0,      PictureLocation + "Outline1"           + PictureFormat),
-    new PriceClass( "T h i c c",     2,      PictureLocation + "Outline2"           + PictureFormat),
-    new PriceClass( "Sticker",       4,      PictureLocation + "Outline3"           + PictureFormat),
-    new PriceClass( "Colored",       6,      PictureLocation + "Outline4"           + PictureFormat),
+    new PriceClass( "None",          0),
+    new PriceClass( "Regular",       0),
+    new PriceClass( "T h i c c",     2),
+    new PriceClass( "Sticker",       4),
+    new PriceClass( "Colored",       6),
 ];
 
-// Backgrounds     |Name:          |Price: |Location:         |Picture name:       |Picture format:
+// Backgrounds     |Name:          |Price:
 var Backgrounds = [
-    new PriceClass( "None",          0,      PictureLocation + DefaultPictureName   + PictureFormat),
-    new PriceClass( "None",          0,      PictureLocation + "Background1"        + PictureFormat),
-    new PriceClass( "Square",        0,      PictureLocation + "Background2"        + PictureFormat),
-    new PriceClass( "Pattern",       2,      PictureLocation + "Background3"        + PictureFormat),
-    new PriceClass( "Custom",        999,    PictureLocation + "Background4"        + PictureFormat),
+    new PriceClass( "None",          0),
+    new PriceClass( "None",          0),
+    new PriceClass( "Square",        0),
+    new PriceClass( "Pattern",       2),
+    new PriceClass( "Custom",        999),
 ];
 
-//  Extras         |Name:          |Price: |Location:         |Picture name:       |Picture format:
+//  Extras         |Name:          |Price:
 var Extras = [
-    new PriceClass( "None",          0,      PictureLocation + DefaultPictureName   + PictureFormat),
-    new PriceClass( "None",          0,      PictureLocation + DefaultPictureName   + PictureFormat),
-    new PriceClass( "One",           10,     PictureLocation + DefaultPictureName   + PictureFormat),
-    new PriceClass( "Two",           20,     PictureLocation + DefaultPictureName   + PictureFormat),
-    new PriceClass( "Three",         30,     PictureLocation + DefaultPictureName   + PictureFormat),
+    new PriceClass( "None",          0),
+    new PriceClass( "None",          0),
+    new PriceClass( "One",           10),
+    new PriceClass( "Two",           20),
+    new PriceClass( "Three",         30),
 ];
 // ---------------------------------------------------- Different PriceClasses end ------------------------------------------------ //
 
 // ---------------------------------------------------- Different options --------------------------------------------------------- //
+
+// NOTE! Example picture name should match optionId!!
+
 // Options         |optionId:        |selectedPriceClass:           |labelText:                 |placeholderText:
 var Options = [
-    new OpinionClass("style",           Styles,                     "Style selected",           "Select the style"),
-    new OpinionClass("format",          Formats,                    "Format selected",          "Select the format"),
-    new OpinionClass("outline",         Outlines,                   "Outline selected",         "Select the outlines"),
-    new OpinionClass("background",      Backgrounds,                "Background selected",      "Select the background"),
-    new OpinionClass("extra",           Extras,                     "Extra characters",         "Select amount of extra characters"),
+    new OpinionClass("Style",           Styles,                     "Style selected",           "Select the style"),
+    new OpinionClass("Format",          Formats,                    "Format selected",          "Select the format"),
+    new OpinionClass("Outline",         Outlines,                   "Outline selected",         "Select the outlines"),
+    new OpinionClass("Background",      Backgrounds,                "Background selected",      "Select the background"),
+    new OpinionClass("Extra",           Extras,                     "Extra characters",         "Select amount of extra characters"),
 ];
 
 // ---------------------------------------------------- Different options end ----------------------------------------------------- //

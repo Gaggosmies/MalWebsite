@@ -75,7 +75,8 @@ var Options = [
 
 
 // dmMeText is shown when the price is up to debate, set such class price to "999" to trigger this
-var dmMeText = "$ + ?$, dm for more info"
+var dmMeText        = " + ?$, dm for more info";
+var chooseAllText   = ", Choose all options";
 
 // Document links:
 const ToSLink   = "https://docs.google.com/document/d/1W0POqDfm8FCCH5ujt_S3mOmQBXYwICGajFlKRKY62VQ/";

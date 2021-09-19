@@ -19,76 +19,7 @@ function RestoreDefaultPicture() {
     document.getElementById('myimage').src = DefaultPicture;
 }
 
-
-
-// -------------------------------------------------- calculatePrice() -------------------------------------------------- //
-// emptyCounter is used in multiple functions
-var emptyCounter = 0;
-
-function calculatePrice() {
-    event.preventDefault();
-    // reset counter
-    emptyCounter = 0;
-
-    // check there is no empty elements
-    var stylePrice      =   checkIfElementEmpty(document.getElementById('style').selectedIndex,         Styles[document.getElementById('style').selectedIndex].price);
-    var formatPrice     =   checkIfElementEmpty(document.getElementById('format').selectedIndex,        Formats[document.getElementById('format').selectedIndex].price);
-    var outlinesPrice   =   checkIfElementEmpty(document.getElementById('outline').selectedIndex,       Outlines[document.getElementById('outline').selectedIndex].price);
-    var backgroundPrice =   checkIfElementEmpty(document.getElementById('background').selectedIndex,    Backgrounds[document.getElementById('background').selectedIndex].price);
-    var extraPrice      =   checkIfElementEmpty(document.getElementById('extra').selectedIndex,         Extras[document.getElementById('extra').selectedIndex].price);
-
-    var result;
-
-    // On those cases where the price is not set, variable price is set to 999 to trigger this if
-    if (backgroundPrice != 999) {
-        // get the price
-        result = stylePrice + formatPrice + outlinesPrice + parseInt(backgroundPrice) + extraPrice + " $";
-    }
-    else {
-        // get the price and text
-        result = stylePrice + formatPrice + outlinesPrice + extraPrice;
-        result += dmMeText;
-    }
-
-    document.getElementById("price").innerHTML = result;
-
-    // if empty counter is more than 0 -> there are empty slots
-    if (emptyCounter > 0) {
-        document.getElementById("price").style.color = "red";
-        document.getElementById("price").innerHTML += " Choose all options";
-    }
-    else {
-        document.getElementById("price").style.color = "green";
-    }
-};
-
-// Return 0 if element is empty
-function checkIfElementEmpty(elementIndex, elementValue) {
-    var temp;
-    if (elementIndex === 0) {
-        temp = 0;
-        emptyCounter += 1;
-    }
-    else if (elementValue == 999) {
-        return elementValue;
-    }
-    else {
-        temp = elementValue;
-    }
-    return parseInt(temp);
-}
-// -------------------------------------------------- calculatePrice() end ---------------------------------------------- //
-
 // -------------------------------------------------- Draw Options ------------------------------------------------------ //
-// Used to draw each class dynamically
-// For styles
-// var select = document.getElementById("DifferentOptionsHere");
-// for (index in Styles) {
-//     if (index > 0) {
-//         select.options[select.options.length] = new Option(Styles[index].name, index);
-//         select.select[select.options.length] = new Selection()
-//     }
-// }
 for (index in Options) {
     // print new select
     var select = document.createElement("select");
@@ -96,8 +27,47 @@ for (index in Options) {
     select.className = "form-control";
     select.addEventListener(
         'change',
-        function (){
+        function ChangeExamplePicture(){
             document.getElementById('myimage').src = PictureLocation + this.id + this.selectedIndex + PictureFormat;
+        },
+        false
+     );
+
+     select.addEventListener(
+        'change',
+        function CalculatePrice(){
+            var price = 0;
+            var dmMe = 0;
+            var emptyFields = 0;
+            for (differentOptions in Options) {
+                if(document.getElementById(Options[differentOptions].optionId).selectedIndex == 0)
+                {
+                    emptyFields++;
+                }
+                var add = parseInt(document.getElementById(Options[differentOptions].optionId).value); 
+                if (add == 999) {
+                    dmMe = 1;
+                }
+                else {
+                    price += add;
+                }
+            }   
+
+            price += "$"
+
+            if(dmMe > 0){
+                price += dmMeText;
+            }
+
+            if(emptyFields > 0){
+                price += chooseAllText;
+                document.getElementById("price").style.color = "red";
+            }
+            else{
+                document.getElementById("price").style.color = "green";
+            }
+        
+            document.getElementById("price").innerHTML = price;
         },
         false
      );
@@ -110,8 +80,6 @@ for (index in Options) {
             var option = document.createElement("option");
             option.value = Options[index].selectedPriceClass[priceClass].price;
             option.text = Options[index].selectedPriceClass[priceClass].name;
-            // option.onchange = calculatePrice();
-            // option.setAttribute("onchange", document.getElementById('myimage').src = Styles[priceClass].examplePicture);
             select.appendChild(option);
         }
         // print placeholder
@@ -120,6 +88,7 @@ for (index in Options) {
             var option = document.createElement("option");
             option.text = Options[index].placeholderText;
             option.hidden = true;
+            option.value = 0;
             select.appendChild(option);
         }
     }
@@ -129,31 +98,6 @@ for (index in Options) {
     label.htmlFor = Options[index].optionId;
     label.className = "form-control-label";
 
-    // var br = document.createElement("br");
-
     document.getElementById("DifferentOptionsHere").appendChild(label).appendChild(select);
 }
-
-// var values = ["dog", "cat", "parrot", "rabbit"];
-
-// var select = document.createElement("select");
-// select.name = "pets";
-// select.id = "pets";
-// select.className = "form-control";
-
-
-// for (const val of values)
-// {
-//     var option = document.createElement("option");
-//     option.value = val;
-//     option.text = val.charAt(0).toUpperCase() + val.slice(1);
-//     select.appendChild(option);
-// }
-
-// var label = document.createElement("label");
-// label.innerHTML = "Choose your pets: "
-// label.htmlFor = "pets";
-// label.className = "form-control-label";
-
-// document.getElementById("DifferentOptionsHere").appendChild(label).appendChild(select);
 // -------------------------------------------------- Draw Options end --------------------------------------------------- //

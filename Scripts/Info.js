@@ -11,6 +11,7 @@ const PictureLocation   = "Pics/";
 const PictureFormat     = ".png";
 
 
+// ---------------------------------------------------- Different PriceClasses ---------------------------------------------------- //
 // Styles          |Name:          |Price: |Location:         |Picture name:       |Picture format:
 var Styles = [
     new PriceClass( "None",          0,      PictureLocation + DefaultPictureName   + PictureFormat),
@@ -55,6 +56,20 @@ var Extras = [
     new PriceClass( "Two",           20,     PictureLocation + DefaultPictureName   + PictureFormat),
     new PriceClass( "Three",         30,     PictureLocation + DefaultPictureName   + PictureFormat),
 ];
+// ---------------------------------------------------- Different PriceClasses end ------------------------------------------------ //
+
+// ---------------------------------------------------- Different options --------------------------------------------------------- //
+// Options         |optionId:        |selectedPriceClass:           |labelText:                 |placeholderText:
+var Options = [
+    new OpinionClass("style",           Styles,                     "Style selected",           "Select the style"),
+    new OpinionClass("format",          Formats,                    "Format selected",          "Select the format"),
+    new OpinionClass("outline",         Outlines,                   "Outline selected",         "Select the outlines"),
+    new OpinionClass("background",      Backgrounds,                "Background selected",      "Select the background"),
+    new OpinionClass("extra",           Extras,                     "Extra characters",         "Select amount of extra characters"),
+];
+
+// ---------------------------------------------------- Different options end ----------------------------------------------------- //
+
 
 // dmMeText is shown when the price is up to debate, set such class price to "999" to trigger this
 var dmMeText = "$ + ?$, dm for more info"

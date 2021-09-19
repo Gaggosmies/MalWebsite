@@ -78,42 +78,78 @@ function checkIfElementEmpty(elementIndex, elementValue) {
 // -------------------------------------------------- Draw Options ------------------------------------------------------ //
 // Used to draw each class dynamically
 // For styles
-var select = document.getElementById("style");
-for (index in Styles) {
-    if (index > 0) {
-        select.options[select.options.length] = new Option(Styles[index].name, index);
+// var select = document.getElementById("DifferentOptionsHere");
+// for (index in Styles) {
+//     if (index > 0) {
+//         select.options[select.options.length] = new Option(Styles[index].name, index);
+//         select.select[select.options.length] = new Selection()
+//     }
+// }
+
+var number = 0;
+for (options in Options) {
+    // print new select
+    var select = document.createElement("select");
+    select.id = Options[options].optionId;
+    select.className = "form-control";
+    // select.addEventListener(
+    //     'change',
+    //     calculatePrice(),
+    //     false
+    //  );
+
+    for (priceClass in Options[options].selectedPriceClass)
+    {
+        // print new option
+        if(priceClass > 0)
+        {
+            var option = document.createElement("option");
+            option.value = Options[options].selectedPriceClass[priceClass].price;
+            option.text = Options[options].selectedPriceClass[priceClass].name;
+            // option.onchange = calculatePrice();
+            // option.setAttribute("onchange", document.getElementById('myimage').src = Styles[priceClass].examplePicture);
+            select.appendChild(option);
+        }
+        // print placeholder
+        else
+        {
+            var option = document.createElement("option");
+            option.text = Options[options].placeholderText;
+            option.hidden = true;
+            select.appendChild(option);
+        }
     }
+
+    var label = document.createElement("label");
+    label.innerHTML = Options[options].labelText;
+    label.htmlFor = Options[options].optionId;
+    label.className = "form-control-label";
+
+    var br = document.createElement("br");
+
+    document.getElementById("DifferentOptionsHere").appendChild(label).appendChild(select);
 }
 
-// For formats
-var select = document.getElementById("format");
-for (index in Formats) {
-    if (index > 0) {
-        select.options[select.options.length] = new Option(Formats[index].name, index);
-    }
-}
+// var values = ["dog", "cat", "parrot", "rabbit"];
 
-// For outlines
-var select = document.getElementById("outline");
-for (index in Outlines) {
-    if (index > 0) {
-        select.options[select.options.length] = new Option(Outlines[index].name, index);
-    }
-}
+// var select = document.createElement("select");
+// select.name = "pets";
+// select.id = "pets";
+// select.className = "form-control";
 
-// For Backgrounds
-var select = document.getElementById("background");
-for (index in Backgrounds) {
-    if (index > 0) {
-        select.options[select.options.length] = new Option(Backgrounds[index].name, index);
-    }
-}
 
-// For Extras
-var select = document.getElementById("extra");
-for (index in Extras) {
-    if (index > 0) {
-        select.options[select.options.length] = new Option(Extras[index].name, index);
-    }
-}
+// for (const val of values)
+// {
+//     var option = document.createElement("option");
+//     option.value = val;
+//     option.text = val.charAt(0).toUpperCase() + val.slice(1);
+//     select.appendChild(option);
+// }
+
+// var label = document.createElement("label");
+// label.innerHTML = "Choose your pets: "
+// label.htmlFor = "pets";
+// label.className = "form-control-label";
+
+// document.getElementById("DifferentOptionsHere").appendChild(label).appendChild(select);
 // -------------------------------------------------- Draw Options end --------------------------------------------------- //

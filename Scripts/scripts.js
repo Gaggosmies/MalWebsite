@@ -19,12 +19,51 @@ function RestoreDefaultPicture() {
     document.getElementById('myimage').src = DefaultPicture;
 }
 
+// Sum up all the prices
+function CalculatePrice(){
+    var price = 0;
+    var dmMe = 0;
+    var emptyFields = 0;
+    for (differentOptions in Options) {
+        if(document.getElementById(Options[differentOptions].optionId).selectedIndex == 0)
+        {
+            emptyFields++;
+        }
+        var add = parseInt(document.getElementById(Options[differentOptions].optionId).value); 
+        if (add == 999) {
+            dmMe = 1;
+        }
+        else {
+            price += add;
+        }
+    }   
+
+    price += "$"
+
+    if(dmMe > 0){
+        price += dmMeText;
+    }
+
+    if(emptyFields > 0){
+        price += chooseAllText;
+        document.getElementById("price").style.color = "red";
+    }
+    else{
+        document.getElementById("price").style.color = "green";
+    }
+
+    document.getElementById("price").innerHTML = price;  
+}
+
 // -------------------------------------------------- Draw Options ------------------------------------------------------ //
-for (index in Options) {
+// Every select option from Info.js is drawn here
+for (indexSelect in Options) {
     // print new select
     var select = document.createElement("select");
-    select.id = Options[index].optionId;
+    select.id = Options[indexSelect].optionId;
     select.className = "form-control";
+
+    // Changing every created select will change the example picture
     select.addEventListener(
         'change',
         function ChangeExamplePicture(){
@@ -32,59 +71,29 @@ for (index in Options) {
         }
      );
 
+    // Changing every created select will update the price
      select.addEventListener(
         'change',
-        function CalculatePrice(){
-            var price = 0;
-            var dmMe = 0;
-            var emptyFields = 0;
-            for (differentOptions in Options) {
-                if(document.getElementById(Options[differentOptions].optionId).selectedIndex == 0)
-                {
-                    emptyFields++;
-                }
-                var add = parseInt(document.getElementById(Options[differentOptions].optionId).value); 
-                if (add == 999) {
-                    dmMe = 1;
-                }
-                else {
-                    price += add;
-                }
-            }   
-
-            price += "$"
-
-            if(dmMe > 0){
-                price += dmMeText;
-            }
-
-            if(emptyFields > 0){
-                price += chooseAllText;
-                document.getElementById("price").style.color = "red";
-            }
-            else{
-                document.getElementById("price").style.color = "green";
-            }
-        
-            document.getElementById("price").innerHTML = price;
+        function (){
+            CalculatePrice();
         }
      );
 
-    for (priceClass in Options[index].selectedPriceClass)
+    for (indexOption in Options[indexSelect].selectedPriceClass)
     {
         // print new option
-        if(priceClass > 0)
+        if(indexOption > 0)
         {
             var option = document.createElement("option");
-            option.value = Options[index].selectedPriceClass[priceClass].price;
-            option.text = Options[index].selectedPriceClass[priceClass].name;
+            option.value = Options[indexSelect].selectedPriceClass[indexOption].price;
+            option.text = Options[indexSelect].selectedPriceClass[indexOption].name;
             select.appendChild(option);
         }
         // print placeholder
         else
         {
             var option = document.createElement("option");
-            option.text = Options[index].placeholderText;
+            option.text = Options[indexSelect].placeholderText;
             option.hidden = true;
             option.value = 0;
             select.appendChild(option);
@@ -92,8 +101,8 @@ for (index in Options) {
     }
 
     var label = document.createElement("label");
-    label.innerHTML = Options[index].labelText;
-    label.htmlFor = Options[index].optionId;
+    label.innerHTML = Options[indexSelect].labelText;
+    label.htmlFor = Options[indexSelect].optionId;
     label.className = "form-control-label";
 
     document.getElementById("DifferentOptionsHere").appendChild(label).appendChild(select);

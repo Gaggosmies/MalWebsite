@@ -60,9 +60,9 @@ var Extras = [
 
 // ---------------------------------------------------- Different options --------------------------------------------------------- //
 
-// NOTE! Example picture name should match optionId!!
+// NOTE! Example picture name should match selectId!!
 
-// Options         |optionId:        |selectedPriceClass:           |labelText:                 |placeholderText:
+// Options         |selectId:        |selectedPriceClass:           |labelText:                 |placeholderText:
 var Options = [
     new OpinionClass("Style",           Styles,                     "Style selected",           "Select the style"),
     new OpinionClass("Format",          Formats,                    "Format selected",          "Select the format"),

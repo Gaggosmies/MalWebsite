@@ -5,36 +5,92 @@ body {
     min-height: 100vh;
     background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
     overflow: hidden;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
 
-  label {
-    color: azure;
-  }
-  
-  h1, h2{
-    color:cornsilk;
-  }
-  /* Socials */
-  .fa {
-    padding: 10px;
-    font-size: 30px;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    text-decoration: none;
-    margin: 5px 2px;
-  }
+label {
+  color: azure;
+}
 
-  .fa:hover {
-      opacity: 0.7;
-  }
+h1, h2{
+  color:cornsilk;
+}
 
-  .fa-twitter {
-    background: #55ACEE;
-    color: white;
-  }
+/* Socials */
+.fa {
+  padding: 10px;
+  font-size: 30px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
 
-  .fa-deviantart {
-    background: #171a1e;
-    color: #00e49c;
-  }
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-deviantart {
+  background: #171a1e;
+  color: #00e49c;
+}
+
+/* Grid */
+div{
+  background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+}
+
+.grid-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-rows: minmax(150px, auto);
+  grid-template-areas: 
+  "title title title price"
+  "selection example example buttons"
+  "socials socials socials socials";
+}
+
+.grid-title{
+  grid-area: title;
+}
+
+.grid-price{
+  grid-area: price;
+}
+
+.grid-selection{
+  grid-area: selection;
+  display: grid;
+  grid-gap: auto;
+}
+
+.grid-selectItem{
+
+}
+
+.grid-buttonContainer{
+  grid-area: buttons;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10%;
+}
+
+.grid-button{
+
+}
+
+.grid-exampleImage{
+  grid-area: example;
+  display: flex;
+  justify-content: center;
+}
+
+.grid-socials{
+  grid-area: socials;
+}

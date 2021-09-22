@@ -6,69 +6,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Styles for social logos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Boostrap styles -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- Styles used in this website -->
   <link rel="stylesheet" href="Styling/styling.css">
 </head>
 
 <body>
   <!-- Container for everything -->
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <h1 class="display-4"><u>MalachiMoet Commissions</u></h1>
+  <div class="grid-container">
+    
+    <!-- Title -->
+    <div class="grid-title">
+      <h1 class="title"><u>MalachiMoet Commissions</u></h1>
+    </div>
+    
+    <!-- Select options -->
+    <div class="grid-selection">
+      <div id="DifferentOptionsHere"></div>
+    </div>
+    
+    <!-- Example image -->
+    <div class="grid-exampleImage">
+      <img id="myimage" height="500" onerror="RestoreDefaultPicture()">
+    </div>
 
-        <div id="DifferentOptionsHere"></div>
-
-        <!-- Buttons -->
-        <br>
-        <button type="button" style="visibility: hidden;"></button>
-        <button type="button" class="btn btn-danger" onmousedown="window.open(ToSLink)">ToS</button>
-        <button type="button" class="btn btn-success" onmousedown="window.open(RulesLink)">Rules</button>
-        <button type="button" style="visibility: hidden;"></button>
-        <button type="button" class="btn btn-primary" onmousedown="window.open(OrderLink)">Order here</button>
-        <button type="button" class="btn btn-warning" onmousedown="window.open(QueueLink)">Queue</button>
-        <button type="button" style="visibility: hidden;"></button>
-        <button type="button" style="visibility: hidden;"></button>
-        <button type="button" class="btn btn-light" onclick="window.location.reload();">Reset</button>
+    <!-- Buttons -->
+    <div class="grid-buttonContainer">
+      <div class="grid-button">
+        <button type="button" id="buttonToS" onmousedown="window.open(ToSLink)">ToS</button>
       </div>
-      <!-- Example picture is shown here -->
-      <div class="col-5">
-        <h2>Price: </h2>
-        <h2 id="price">Please select all options</h2>
-        <img id="myimage" height="500" onerror="RestoreDefaultPicture()">
+      <div class="grid-button">
+        <button type="button" id="buttonRules" onmousedown="window.open(RulesLink)">Rules</button>
+      </div>
+      <div class="grid-button">
+        <button type="button" id="buttonOrder" onmousedown="window.open(OrderLink)">Order here</button>
+      </div>
+      <div class="grid-button">
+        <button type="button" id="buttonQueue" onmousedown="window.open(QueueLink)">Queue</button>
+      </div>
+      <div class="grid-button">
+        <button type="button" id="buttonReset" onclick="window.location.reload();">Reset</button>
       </div>
     </div>
-    <!-- Socials -->
-    <div class="row">
-      <div class="col-9">
-        <a id="GaggoSocial" style="color: white; text-decoration: none; font-size: 0.8em;">Website was made by @Gaggosmies</a>
-      </div>
-      <div class="col">
-        <a id="MalachiFA"><img id="FAPicture" height="50px" width="50px"></a>
-        <a id="MalachiTwitter" class="fa fa-twitter"></a>
-        <a id="MalachiDA" class="fa fa-deviantart"></a>
-      </div>
+    
+    <!-- Price -->
+    <div class="grid-price">
+      <h2>Price: </h2>
+      <h2 id="price">Please select all options</h2>
     </div>
+
+    <!-- Socials -->   
+    <div class="grid-socials">
+      <a id="MalachiFA"><img id="FAPicture" height="50px" width="50px"></a>
+      <a id="MalachiTwitter" class="fa fa-twitter"></a>
+      <a id="MalachiDA" class="fa fa-deviantart"></a>
+      <a id="GaggoSocial" style="color: white; text-decoration: none; font-size: 0.8em;">Website was made by @Gaggosmies</a>
+    </div>
+
   </div>
+  <!-- Container end -->  
 
-  <!-- Scripts used in this file -->
-  <script type="text/javascript" src="Scripts/PriceClass.js"></script>
-  <script type="text/javascript" src="Scripts/OptionClass.js"></script>
-  <script type="text/javascript" src="Scripts/Info.js"></script>
-  <script type="text/javascript" src="Scripts/scripts.js"></script>
-
-  <!-- Bootstrap scripts -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+<!-- Scripts used in this file -->
+<script type="text/javascript" src="Scripts/PriceClass.js"></script>
+<script type="text/javascript" src="Scripts/OptionClass.js"></script>
+<script type="text/javascript" src="Scripts/Info.js"></script>
+<script type="text/javascript" src="Scripts/scripts.js"></script>
 </body>
 </html>

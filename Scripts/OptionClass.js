@@ -1,7 +1,7 @@
 // Class used to new options
 class OpinionClass {
-    constructor(optionId, selectedPriceClass, labelText, placeholderText) {
-        this.optionId = optionId;
+    constructor(selectId, selectedPriceClass, labelText, placeholderText) {
+        this.selectId = selectId;
         this.selectedPriceClass = selectedPriceClass;
         this.labelText = labelText;
         this.placeholderText = placeholderText;

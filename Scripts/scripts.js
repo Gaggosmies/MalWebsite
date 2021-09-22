@@ -25,11 +25,11 @@ function CalculatePrice(){
     var dmMe = 0;
     var emptyFields = 0;
     for (differentOptions in Options) {
-        if(document.getElementById(Options[differentOptions].optionId).selectedIndex == 0)
+        if(document.getElementById(Options[differentOptions].selectId).selectedIndex == 0)
         {
             emptyFields++;
         }
-        var add = parseInt(document.getElementById(Options[differentOptions].optionId).value); 
+        var add = parseInt(document.getElementById(Options[differentOptions].selectId).value); 
         if (add == 999) {
             dmMe = 1;
         }
@@ -58,10 +58,14 @@ function CalculatePrice(){
 // -------------------------------------------------- Draw Options ------------------------------------------------------ //
 // Every select option from Info.js is drawn here
 for (indexSelect in Options) {
+    // print new container for select
+    var divForSelect = document.createElement("div");
+    divForSelect.class = "grid-selectItem";
+
     // print new select
     var select = document.createElement("select");
-    select.id = Options[indexSelect].optionId;
-    select.className = "form-control";
+    select.id = Options[indexSelect].selectId;
+    
 
     // Changing every created select will change the example picture
     select.addEventListener(
@@ -100,11 +104,18 @@ for (indexSelect in Options) {
         }
     }
 
+    var divForLabel = document.createElement("div");
+    divForLabel.class = "grid-selectItem";
+
     var label = document.createElement("label");
     label.innerHTML = Options[indexSelect].labelText;
-    label.htmlFor = Options[indexSelect].optionId;
+    label.htmlFor = Options[indexSelect].selectId;
     label.className = "form-control-label";
 
-    document.getElementById("DifferentOptionsHere").appendChild(label).appendChild(select);
+    document.getElementById("DifferentOptionsHere")
+    .appendChild(divForSelect)
+    .appendChild(label)
+    .appendChild(divForLabel)
+    .appendChild(select);
 }
 // -------------------------------------------------- Draw Options end --------------------------------------------------- //

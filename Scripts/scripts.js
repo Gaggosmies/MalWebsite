@@ -121,7 +121,7 @@ for (indexSelect in Options) {
 }
 // -------------------------------------------------- Draw Options end --------------------------------------------------- //
 
-// -------------------------------------------------- Draw Buttons ------------------------------------------------------ //
+// -------------------------------------------------- Draw Buttons ------------------------------------------------------- //
 
 Buttons.forEach(function (ButtonClass, buttonIndex, buttonArray) {
     // print new container for each button
@@ -161,4 +161,5 @@ Buttons.forEach(function (ButtonClass, buttonIndex, buttonArray) {
     .appendChild(divForButton)
     .appendChild(button)
 });
+
 // -------------------------------------------------- Draw Buttons end --------------------------------------------------- //

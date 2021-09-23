@@ -58,9 +58,9 @@ function CalculatePrice(){
 // -------------------------------------------------- Draw Options ------------------------------------------------------ //
 // Every select option from Info.js is drawn here
 for (indexSelect in Options) {
-    // print new container for select
+    // print new container for each select
     var divForSelect = document.createElement("div");
-    divForSelect.class = "grid-selectItem";
+    divForSelect.className = "grid-selectItem";
 
     // print new select
     var select = document.createElement("select");
@@ -76,12 +76,12 @@ for (indexSelect in Options) {
      );
 
     // Changing every created select will update the price
-     select.addEventListener(
+    select.addEventListener(
         'change',
         function (){
             CalculatePrice();
         }
-     );
+    );
 
     for (indexOption in Options[indexSelect].selectedPriceClass)
     {
@@ -104,8 +104,9 @@ for (indexSelect in Options) {
         }
     }
 
+    // print new container for each select
     var divForLabel = document.createElement("div");
-    divForLabel.class = "grid-selectItem";
+    divForLabel.className = "grid-selectItem";
 
     var label = document.createElement("label");
     label.innerHTML = Options[indexSelect].labelText;
@@ -119,3 +120,45 @@ for (indexSelect in Options) {
     .appendChild(select);
 }
 // -------------------------------------------------- Draw Options end --------------------------------------------------- //
+
+// -------------------------------------------------- Draw Buttons ------------------------------------------------------ //
+
+Buttons.forEach(function (ButtonClass, buttonIndex, buttonArray) {
+    // print new container for each button
+    var divForButton = document.createElement("div");
+    divForButton.class = "grid-button-div";
+
+    // add button details
+    var button = document.createElement("button");
+    button.className = "grid-button";
+    button.id = buttonArray[buttonIndex].buttonId;
+    button.style.background = buttonArray[buttonIndex].buttonColor;
+    button.textContent = buttonArray[buttonIndex].buttonText;
+
+    // reset button reloads the website
+    if (button.textContent.valueOf() == new String("Reset").valueOf())
+    {
+        button.addEventListener(
+            'click',
+            function() {
+                location.reload();
+            }
+        );
+    }
+    // else add link to the button
+    else
+    {
+        button.addEventListener(
+            'mousedown',
+            function() {
+                window.open(buttonArray[buttonIndex].buttonLink);
+            }
+        );
+    }
+    
+    // Append buttons
+    document.getElementById("DifferentButtonsHere")
+    .appendChild(divForButton)
+    .appendChild(button)
+});
+// -------------------------------------------------- Draw Buttons end --------------------------------------------------- //

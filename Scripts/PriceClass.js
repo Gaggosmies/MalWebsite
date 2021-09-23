@@ -1,6 +1,6 @@
 // Class used to create new price classes (For example styles or formats)
 class PriceClass {
-    constructor(name, price, examplePicture) {
+    constructor(name, price) {
         this.name = name;
         this.price = price;
     }

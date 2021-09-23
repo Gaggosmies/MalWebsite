@@ -81,8 +81,13 @@ div{
   padding: 10%;
 }
 
-.grid-button{
+.grid-button-div{
+  
+}
 
+.grid-button{
+  height: 100%;
+  width: 100%;
 }
 
 .grid-exampleImage{

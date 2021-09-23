@@ -89,3 +89,16 @@ const GaggoLink             = "https://www.furaffinity.net/user/gaggosmies/";
 const MalachiLinkFA         = "https://www.furaffinity.net/user/malachimoet/";
 const MalachiLinkTwitter    = "https://twitter.com/malachimoet";
 const MalachiLinkDA         = "https://www.deviantart.com/malachimoet";
+
+// ---------------------------------------------------- Different buttons --------------------------------------------------------- //
+
+// Buttons         |buttonId:            |buttonText:       |buttonColor:       |buttonLink:
+var Buttons = [
+    new ButtonClass("buttonToS",        "ToS",              "red",              ToSLink),
+    new ButtonClass("buttonRules",      "Rules",            "blue",             RulesLink),
+    new ButtonClass("buttonOrder",      "Order here",       "green",            OrderLink),
+    new ButtonClass("buttonQueue",      "Queue",            "yellow",           QueueLink),
+    new ButtonClass("buttonReset",      "Reset",            "white",            ToSLink),
+];
+
+// ---------------------------------------------------- Different buttons end ----------------------------------------------------- //

@@ -111,11 +111,12 @@ for (indexSelect in Options) {
     var label = document.createElement("label");
     label.innerHTML = Options[indexSelect].labelText;
     label.htmlFor = Options[indexSelect].selectId;
-    label.className = "form-control-label";
 
     document.getElementById("DifferentOptionsHere")
     .appendChild(divForSelect)
-    .appendChild(label)
+    .appendChild(label);
+
+    document.getElementById("DifferentOptionsHere")
     .appendChild(divForLabel)
     .appendChild(select);
 }
